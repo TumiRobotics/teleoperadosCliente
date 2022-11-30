@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RobotMovil</title>
+    </head>
+    <body>
+        <form method="post" action="{% url 'robotMovil:index' %}">
+        {% csrf_token %}
+        <label>Ingrese la IP del robot a conectar : </label>
+        <input type="text" name="ipRobot">
+        <button type="submit">Ingresar</button>
+        </form>
+        <div>
+            {% if mensaje %}
+            <h1>{{ mensaje }}</h1>
+            {% endif %}
+        </div>
+        <div>
+            {% if conectado == '1' %}
+            <a href="{{ url_conexion }}">Conectar</a>
+            {% endif %}
+        </div>
+    </body>
+</html>
